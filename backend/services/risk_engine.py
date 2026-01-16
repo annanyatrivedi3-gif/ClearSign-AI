@@ -35,3 +35,15 @@ def analyze_risks(text: str):
             })
 
     return risks
+
+
+def calculate_score(risks: list):
+    score = 0
+    for r in risks:
+        if r["level"] == "High":
+            score += 3
+        elif r["level"] == "Medium":
+            score += 2
+        else:
+            score += 1
+    return min(10, score)
